@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    kompose.cmd: C:\ProgramData\chocolatey\lib\kubernetes-kompose\tools\kompose.exe
+      convert
+    kompose.version: 1.10.0 (8bb0907)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: hbase
+  name: hbase
+spec:
+  ports:
+  - name: "2181"
+    port: 2181
+    targetPort: 2181
+  - name: "9090"
+    port: 9090
+    targetPort: 9090
+  - name: "60000"
+    port: 60000
+    targetPort: 60000
+  - name: "60020"
+    port: 60020
+    targetPort: 60020
+  selector:
+    io.kompose.service: hbase
+status:
+  loadBalancer: {}
